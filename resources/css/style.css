@@ -134,3 +134,181 @@ form button[type="submit"]:hover {
 .navbar ul li a:hover {
     text-decoration: underline;
 }
+
+/* Estilos para a seção de boas-vindas */
+.welcome-section {
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+.welcome-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.welcome-description {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Estilos para a seção de recursos */
+.features-section {
+    background-color: #fff;
+    padding: 20px;
+}
+
+.features-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.feature-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.feature-title {
+    font-size: 18px;
+    color: #333;
+}
+
+/* Estilos para o rodapé */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+.footer p {
+    margin: 0;
+}
+
+/* Arquivo: public/css/style.css */
+
+/* Estilização da tabela de carregamentos */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table th,
+  .table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Estilização dos botões */
+  .btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #337ab7;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: #23527c;
+  }
+  
+  /* Estilização do formulário */
+  .form-group {
+    margin-bottom: 16px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: bold;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Estilização de mensagens de erro */
+  .error-message {
+    color: red;
+    margin-top: 4px;
+  }
+/* Arquivo: public/css/style.css */
+
+/* Estilização da página de carregamentos */
+
+/* Estilização do cabeçalho da tabela */
+.table thead th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  /* Estilização das linhas alternadas da tabela */
+  .table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  /* Estilização dos links de ação */
+  .action-link {
+    color: #337ab7;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .action-link:hover {
+    color: #23527c;
+  }
+  
+  /* Estilização do formulário de busca */
+  .search-form {
+    margin-bottom: 16px;
+  }
+  
+  .search-form input[type="text"] {
+    width: 200px;
+  }
+  
+  .search-form button {
+    margin-left: 8px;
+  }
+  
+  /* Estilização da paginação */
+  .pagination {
+    margin-top: 16px;
+  }
+  
+  .pagination li {
+    display: inline-block;
+    margin-right: 4px;
+  }
+  
+  .pagination li a {
+    display: inline-block;
+    padding: 4px 8px;
+    background-color: #f2f2f2;
+    color: #333;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  .pagination li a:hover {
+    background-color: #e0e0e0;
+  }
+    
