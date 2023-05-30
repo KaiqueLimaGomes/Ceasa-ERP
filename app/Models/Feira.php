@@ -15,4 +15,11 @@ class Feira extends Model
     {
         return $this->belongsTo(Estoque::class);
     }
+
+    public function index()
+    {
+        $estoque = Estoque::all();
+
+        return view('feiras.index', compact('estoque'));
+    }
 }

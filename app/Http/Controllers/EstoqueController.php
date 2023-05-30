@@ -7,9 +7,11 @@ use Illuminate\Http\Request;
 
 class EstoqueController extends Controller
 {
+
+    
     public function index()
     {
-        $estoques = Estoque::all();
+        $estoque = Estoque::all();
         return view('estoques.index', compact('estoques'));
     }
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Carregamento;
 use App\Models\Produtor;
+use App\Models\Verdura;
 use Illuminate\Http\Request;
 
 class CarregamentoController extends Controller
@@ -17,9 +18,11 @@ class CarregamentoController extends Controller
     public function create()
     {
         $produtores = Produtor::all();
-        return view('carregamentos.create', compact('produtores'));
+        $verduras = Verdura::all();
+    
+        return view('carregamentos.create', compact('produtores', 'verduras'));
     }
-
+    
     public function store(Request $request)
     {
         $carregamento = new Carregamento();
@@ -59,4 +62,6 @@ class CarregamentoController extends Controller
 
         return redirect()->route('carregamentos.index')->with('success', 'Carregamento excluído com sucesso.');
     }
+
+    
 }

@@ -16,9 +16,9 @@
                 <label for="estoque_id">Estoque:</label>
                 <select name="estoque_id" id="estoque_id" class="form-control" required>
                     <option value="">Selecione um estoque</option>
-                    @foreach ($estoques as $estoque)
-                        <option value="{{ $estoque->id }}">{{ $estoque->data }}</option>
-                    @endforeach
+                    @foreach ($carregamentos as $carregamentos)
+                    <option value="{{ $carregamentos->id }}">{{ $carregamentos->data }}</option>
+                @endforeach
                 </select>
             </div>
 
@@ -27,4 +27,3 @@
         </form>
     </div>
 @endsection
-index.blade.php

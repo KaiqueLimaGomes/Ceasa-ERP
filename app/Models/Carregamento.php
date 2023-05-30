@@ -14,4 +14,9 @@ class Carregamento extends Model
     {
         return $this->hasMany(CaixaVerduraCarregamento::class);
     }
+
+    public function produtores()
+    {
+        return $this->belongsToMany(Produtor::class, 'carregamento_produtor')->withPivot('quantidade');
+    }
 }

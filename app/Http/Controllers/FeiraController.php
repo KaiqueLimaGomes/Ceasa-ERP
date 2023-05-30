@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Carregamento;
+use App\Models\Estoque;
 use App\Models\Feira;
 use Illuminate\Http\Request;
 
@@ -18,6 +19,10 @@ class FeiraController extends Controller
     {
         $carregamentos = Carregamento::all();
         return view('feiras.create', compact('carregamentos'));
+        //$estoques = Estoque::all(); // Obtém todos os estoques do banco de dados
+
+        //$estoque = Estoque::all();
+        //return view('feiras.create', compact('carregamentos'));
     }
 
     public function store(Request $request)
@@ -51,4 +56,6 @@ class FeiraController extends Controller
 
         return redirect()->route('feiras.index')->with('success', 'Feira excluída com sucesso.');
     }
+
+    
 }
