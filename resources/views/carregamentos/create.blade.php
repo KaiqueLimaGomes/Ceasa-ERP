@@ -12,89 +12,129 @@
                 <input type="date" name="data" id="data" class="form-control" required>
             </div>
 
-            <div class="form-group">
-                <label for="produtor_id">Produtor:</label>
-                <select name="produtor_id" id="produtor_id" class="form-control" required>
-                    <option value="">Selecione um produtor</option>
-                    @foreach ($produtores as $produtor)
-                        <option value="{{ $produtor->id }}">{{ $produtor->nome }}</option>
-                    @endforeach
-                </select>
-            </div>
+            <div id="pontos-container">
+                <div class="ponto-group">
+                    <div class="form-group">
+                        <label for="produtor">Produtor:</label>
+                        <input type="text" name="produtor[]" class="form-control" required>
+                    </div>
 
-            <div id="verduras-container">
-                <div class="form-group">
-                    <label for="verdura_id_0">Verdura:</label>
-                    <select name="verdura_id[]" id="verdura_id_0" class="form-control" required>
-                        <option value="">Selecione uma verdura</option>
-                        @foreach ($verduras as $verdura)
-                            <option value="{{ $verdura->id }}">{{ $verdura->nome }}</option>
-                        @endforeach
-                    </select>
-                </div>
+                    <div class="verduras-container">
+                        <div class="verdura-group">
+                            <div class="form-group">
+                                <label for="verdura">Verdura:</label>
+                                <input type="text" name="verdura[]" class="form-control" required>
+                            </div>
 
-                <div class="form-group">
-                    <label for="quantidade_0">Quantidade de Caixas:</label>
-                    <input type="number" name="quantidade[]" id="quantidade_0" class="form-control" required>
+                            <div class="form-group">
+                                <label for="quantidade">Quantidade de Caixas:</label>
+                                <input type="number" name="quantidade[]" class="form-control" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn btn-primary" onclick="addVerdura(this)">Adicionar Verdura</button>
                 </div>
             </div>
 
-            <button type="button" class="btn btn-primary" onclick="addVerdura()">Adicionar Verdura</button>
+            <button type="button" class="btn btn-primary" onclick="addPonto()">Adicionar Ponto de Coleta</button>
 
             <button type="submit" class="btn btn-success">Salvar Carregamento</button>
-            <a href="{{ route('carregamentos.index') }}" class="btn btn-secondary">Cancelar</a>
         </form>
     </div>
 
     <script>
-        let verduraCount = 1;
+        function addVerdura(btn) {
+            var pontoGroup = btn.closest('.ponto-group');
+            var verdurasContainer = pontoGroup.querySelector('.verduras-container');
 
-        function addVerdura() {
-            const container = document.getElementById('verduras-container');
+            var novaVerdura = document.createElement('div');
+            novaVerdura.classList.add('verdura-group');
 
-            const div = document.createElement('div');
-            div.className = 'form-group';
-
-            const verduraLabel = document.createElement('label');
+            var verduraLabel = document.createElement('label');
             verduraLabel.textContent = 'Verdura:';
-            div.appendChild(verduraLabel);
+            novaVerdura.appendChild(verduraLabel);
 
-            const select = document.createElement('select');
-            select.name = `verdura_id[]`;
-            select.className = 'form-control';
-            select.required = true;
+            var verduraInput = document.createElement('input');
+            verduraInput.type = 'text';
+            verduraInput.name = 'verdura[]';
+            verduraInput.classList.add('form-control');
+            verduraInput.required = true;
+            novaVerdura.appendChild(verduraInput);
 
-            const option = document.createElement('option');
-            option.value = '';
-            option.textContent = 'Selecione uma verdura';
-            select.appendChild(option);
-
-            @foreach ($verduras as $verdura)
-                const option{{ $verdura->id }} = document.createElement('option');
-                option{{ $verdura->id }}.value = '{{ $verdura->id }}';
-                option{{ $verdura->id }}.textContent = '{{ $verdura->nome }}';
-                select.appendChild(option{{ $verdura->id }});
-            @endforeach
-
-            div.appendChild(select);
-            container.appendChild(div);
-
-            const quantidadeDiv = document.createElement('div');
-            quantidadeDiv.className = 'form-group';
-
-            const quantidadeLabel = document.createElement('label');
+            var quantidadeLabel = document.createElement('label');
             quantidadeLabel.textContent = 'Quantidade de Caixas:';
-            quantidadeDiv.appendChild(quantidadeLabel);
-            const quantidadeInput = document.createElement('input');
+            novaVerdura.appendChild(quantidadeLabel);
+
+            var quantidadeInput = document.createElement('input');
             quantidadeInput.type = 'number';
             quantidadeInput.name = 'quantidade[]';
-            quantidadeInput.className = 'form-control';
+            quantidadeInput.classList.add('form-control');
             quantidadeInput.required = true;
-            quantidadeDiv.appendChild(quantidadeInput);
+            novaVerdura.appendChild(quantidadeInput);
 
-            container.appendChild(quantidadeDiv);
+            verdurasContainer.appendChild(novaVerdura);
+        }
 
-            verduraCount++;
+        function addPonto() {
+            var pontosContainer = document.getElementById('pontos-container');
+
+            var novoPonto = document.createElement('div');
+            novoPonto.classList.add('ponto-group');
+
+            var produtorLabel = document.createElement('label');
+            produtorLabel.textContent = 'Produtor:';
+            novoPonto.appendChild(produtorLabel);
+
+            var produtorInput = document.createElement('input');
+            produtorInput.type = 'text';
+
+            produtorInput.name = 'produtor[]';
+            produtorInput.classList.add('form-control');
+            produtorInput.required = true;
+            novoPonto.appendChild(produtorInput);
+
+            var verdurasContainer = document.createElement('div');
+            verdurasContainer.classList.add('verduras-container');
+
+            var novaVerdura = document.createElement('div');
+            novaVerdura.classList.add('verdura-group');
+
+            var verduraLabel = document.createElement('label');
+            verduraLabel.textContent = 'Verdura:';
+            novaVerdura.appendChild(verduraLabel);
+
+            var verduraInput = document.createElement('input');
+            verduraInput.type = 'text';
+            verduraInput.name = 'verdura[]';
+            verduraInput.classList.add('form-control');
+            verduraInput.required = true;
+            novaVerdura.appendChild(verduraInput);
+
+            var quantidadeLabel = document.createElement('label');
+            quantidadeLabel.textContent = 'Quantidade de Caixas:';
+            novaVerdura.appendChild(quantidadeLabel);
+
+            var quantidadeInput = document.createElement('input');
+            quantidadeInput.type = 'number';
+            quantidadeInput.name = 'quantidade[]';
+            quantidadeInput.classList.add('form-control');
+            quantidadeInput.required = true;
+            novaVerdura.appendChild(quantidadeInput);
+
+            verdurasContainer.appendChild(novaVerdura);
+            novoPonto.appendChild(verdurasContainer);
+
+            var addVerduraButton = document.createElement('button');
+            addVerduraButton.type = 'button';
+            addVerduraButton.classList.add('btn', 'btn-primary');
+            addVerduraButton.textContent = 'Adicionar Verdura';
+            addVerduraButton.onclick = function() {
+                addVerdura(this);
+            };
+            novoPonto.appendChild(addVerduraButton);
+
+            pontosContainer.appendChild(novoPonto);
         }
     </script>
 @endsection
