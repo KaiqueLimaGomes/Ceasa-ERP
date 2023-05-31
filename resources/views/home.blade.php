@@ -56,7 +56,7 @@
     </div>
 
     <script src="{{asset('site/jquery.js')}}"></script>
-    <script src="{{asset('site/bootstrap.js')}}"></script>
+    <script src="{{asset('site/bootstrap.bundle.js')}}"></script>
     <script src="{{ asset('js/script.js') }}"></script>
 </body>
 </html>

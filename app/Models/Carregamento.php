@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\PontoCarregamento;
 
 class Carregamento extends Model
 {
@@ -18,5 +19,10 @@ class Carregamento extends Model
     public function produtores()
     {
         return $this->belongsToMany(Produtor::class, 'carregamento_produtor')->withPivot('quantidade');
+    }
+
+    public function pontos()
+    {
+        return $this->hasMany(PontoCarregamento::class);
     }
 }

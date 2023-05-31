@@ -19,8 +19,9 @@ class CarregamentoController extends Controller
     {
         $produtores = Produtor::all();
         $verduras = Verdura::all();
+        $carregamentos = Carregamento::with('pontos.verduras')->get();
     
-        return view('carregamentos.create', compact('produtores', 'verduras'));
+        return view('carregamentos.create', compact('produtores', 'verduras', 'carregamentos'));
     }
     
     public function store(Request $request)
